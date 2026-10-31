@@ -1,79 +1,114 @@
 :root {
   color-scheme: light;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #fffaf7;
-  color: #54384b;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #172536;
+  background: #fff;
 }
 
 * { box-sizing: border-box; }
 
-html { min-height: 100%; }
+html { scroll-behavior: smooth; }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-}
+body { margin: 0; }
 
-.page {
-  min-height: 100vh;
-  min-height: 100dvh;
+.profile {
   display: grid;
-  place-items: center;
-  padding: 9rem 1.5rem;
-  background: #fffaf7 url("assets/watercolor-background.png") center / cover no-repeat;
+  grid-template-columns: 25.2rem minmax(0, 1fr);
+  min-height: 100vh;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
-.identity {
-  width: min(100%, 52rem);
-  text-align: center;
-  transform: translateY(-1.2rem);
+.sidebar {
+  padding: 9rem 3.75rem 4rem;
+  border-right: 1px solid #e2e5e8;
 }
+
+.avatar {
+  display: block;
+  width: 16.5rem;
+  height: 16.5rem;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0;
+  opacity: .78;
+}
+
+h1, h2, p { margin-top: 0; }
 
 h1 {
-  margin: 0;
-  color: #4d2442;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3.6rem, 7vw, 6.4rem);
-  font-weight: 400;
-  letter-spacing: -0.045em;
-  line-height: 1.08;
-}
-
-.rule {
-  display: block;
-  width: 4.5rem;
-  height: 2px;
-  margin: 2rem auto 1.5rem;
-  background: #dca5b4;
+  margin-bottom: .55rem;
+  font-size: clamp(2.25rem, 3.1vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.15;
 }
 
 .affiliation {
-  margin: 0;
-  color: #5e4b59;
-  font-size: clamp(1.3rem, 2.25vw, 2rem);
+  margin-bottom: 0;
+  color: #72808b;
+  font-size: 1.47rem;
   line-height: 1.4;
 }
 
-.email {
-  display: inline-block;
-  margin-top: 2rem;
-  color: #975069;
-  font-size: clamp(0.98rem, 1.6vw, 1.28rem);
-  line-height: 1.5;
-  text-decoration-color: #bf899b;
-  text-underline-offset: 0.2em;
+.content {
+  padding: 8.1rem clamp(2.5rem, 6.8vw, 7.5rem) 6rem;
+}
+
+.content section + section { margin-top: 6.7rem; }
+
+h2 {
+  position: relative;
+  z-index: 0;
+  margin-bottom: 2.35rem;
+  padding: 1.5rem 0 .8rem;
+  border-bottom: 1px solid #e8b9c5;
+  font-size: clamp(2.2rem, 3.1vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.13;
+}
+
+h2::before {
+  position: absolute;
+  z-index: -1;
+  top: .1rem;
+  left: -4rem;
+  width: min(28rem, 85%);
+  height: 5rem;
+  background: url("assets/watercolor-stroke.png") left center / 100% 100% no-repeat;
+  opacity: .65;
+  content: "";
+  pointer-events: none;
+}
+
+.content p {
+  font-size: 1.45rem;
+  line-height: 1.65;
+}
+
+a {
+  color: #172536;
+  text-decoration-color: #d89cac;
+  text-underline-offset: .16em;
   overflow-wrap: anywhere;
 }
 
-.email:hover { color: #693d55; }
-.email:focus-visible { outline: 2px solid #693d55; outline-offset: 6px; }
+a:hover { color: #a44f6d; }
+a:focus-visible { outline: 2px solid #a44f6d; outline-offset: 4px; }
 
-@media (max-width: 640px) {
-  .page {
-    padding: 12rem 1.2rem;
-    background-position: 48% center;
+@media (max-width: 760px) {
+  .profile { display: block; }
+  .sidebar {
+    padding: 3.3rem 1.5rem 2.25rem;
+    border-right: 0;
+    border-bottom: 1px solid #e2e5e8;
   }
-  .identity { transform: none; }
-  .rule { margin: 1.5rem auto 1.25rem; }
-  .email { margin-top: 1.5rem; }
+  .avatar { width: 8rem; height: 8rem; margin-bottom: 1rem; }
+  h1 { font-size: 2.35rem; }
+  .affiliation { font-size: 1.2rem; }
+  .content { padding: 2.5rem 1.5rem 5rem; }
+  .content section + section { margin-top: 4rem; }
+  h2 { font-size: 2rem; margin-bottom: 1.4rem; }
+  h2::before { left: -1.5rem; width: 17rem; height: 4.5rem; }
+  .content p { font-size: 1.13rem; }
 }
